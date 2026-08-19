@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Manager Finance | Salary Tracker</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="content-width">
+        <header class="page-header">
+          <div>
+            <h1>Manager Finance</h1>
+            <p>Admin ledger for manager salaries, corporate loans, and repayments.</p>
+          </div>
+        </header>
+
+        <section class="card" style="padding: 0; overflow: hidden;">
+          <div class="tabs" style="padding: 12px 18px 0; border-bottom: 1px solid var(--border); background: var(--surface);">
+            <button class="tab active" data-tab="dashboard">Dashboard</button>
+            <button class="tab" data-tab="add-entry">Add Entry</button>
+            <button class="tab" data-tab="all-entries">All Entries</button>
+            <button class="tab" data-tab="loans-overview">Loans Overview</button>
+            <button class="tab" data-tab="audit-logs">Audit Logs</button>
+          </div>
+          <div id="manager-finance-content" style="padding: 20px;">
+            <span class="skeleton" style="height: 140px; display: block; border-radius: 8px;"></span>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/pages/manager-finance.js"></script>
+  </body>
+</html>

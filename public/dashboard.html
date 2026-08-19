@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>Dashboard | Salary Tracker</title>
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+    <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="content-width" id="page-content">
+        <header class="page-header">
+          <div>
+            <h1 id="page-title">Dashboard</h1>
+            <p>Your latest salary and loan activity.</p>
+          </div>
+        </header>
+        <section class="grid grid-4" id="kpi-grid">
+          <div class="card kpi-card danger">
+            <span class="kpi-label">Total Outstanding Loans</span>
+            <div class="skeleton kpi-value"></div>
+          </div>
+          <div class="card kpi-card">
+            <span class="kpi-label">This Month Salary</span>
+            <div class="skeleton kpi-value"></div>
+          </div>
+          <div class="card kpi-card success">
+            <span class="kpi-label">This Month Repayments</span>
+            <div class="skeleton kpi-value"></div>
+          </div>
+          <div class="card kpi-card neutral">
+            <span class="kpi-label">Active Employees</span>
+            <div class="skeleton kpi-value"></div>
+          </div>
+        </section>
+        <section class="card table-card" style="margin-top: 20px">
+          <div class="card-header"><h2>Top Outstanding Loans</h2></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Employee</th>
+                  <th>Outstanding</th>
+                </tr>
+              </thead>
+              <tbody id="loans-body">
+                <tr class="skeleton-row">
+                  <td><span class="skeleton"></span></td>
+                  <td><span class="skeleton"></span></td>
+                </tr>
+                <tr class="skeleton-row">
+                  <td><span class="skeleton"></span></td>
+                  <td><span class="skeleton"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="card table-card" style="margin-top: 20px">
+          <div class="card-header"><h2>Recent Entries</h2></div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Employee</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                </tr>
+              </thead>
+              <tbody id="entries-body">
+                <tr class="skeleton-row">
+                  <td colspan="4"><span class="skeleton"></span></td>
+                </tr>
+                <tr class="skeleton-row">
+                  <td colspan="4"><span class="skeleton"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/pages/dashboard.js"></script>
+    <script>
+      (function () {
+        function c() {
+          var b =
+            a.contentDocument || (a.contentWindow && a.contentWindow.document);
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'a23abd3dec0e4b7e',t:'MTc4NTQ4MTM2NA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>

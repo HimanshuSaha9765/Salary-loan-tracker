@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#0f766e" />
+    <title>All Entries | Salary Tracker</title>
+    <link rel="icon" href="/favicon.svg" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="/css/app.css" />
+    <link rel="stylesheet" href="/css/components.css" />
+    <link rel="stylesheet" href="/css/nav.css" />
+    <link rel="stylesheet" href="/css/animations.css" />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="content-width">
+        <header class="page-header">
+          <div>
+            <h1>All Entries</h1>
+            <p>Search, review, and export employee financial activity.</p>
+          </div>
+          <div>
+            <button class="btn btn-secondary" id="export-entries">
+              Export Report</button
+            ><a class="btn btn-primary" href="/add-entry">Add Entry</a>
+          </div>
+        </header>
+        <section class="filter-bar">
+          <div class="form-group">
+            <label class="form-label">Employee</label
+            ><select class="select" id="employee-filter">
+              <option value="">All employees</option>
+            </select>
+          </div>
+          <div class="form-group manager-only">
+            <label class="form-label">Manager</label
+            ><select class="select" id="manager-filter">
+              <option value="">All managers</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Type</label
+            ><select class="select" id="type-filter">
+              <option value="">All types</option>
+              <option value="salary_given">Salary</option>
+              <option value="loan_given">Loan</option>
+              <option value="repayment">Repayment</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Date range</label
+            ><select class="select" id="date-filter">
+              <option value="">All time</option>
+              <option value="15">Last 15 days</option>
+              <option value="30">Last 30 days</option>
+              <option value="45">Last 45 days</option>
+              <option value="60">Last 60 days</option>
+              <option value="custom">Custom range</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="from-date-wrap">
+            <label class="form-label">From</label
+            ><input
+              class="input"
+              id="from-date"
+              inputmode="numeric"
+              placeholder="DD/MM/YYYY"
+              maxlength="10"
+            />
+          </div>
+          <div class="form-group hidden" id="to-date-wrap">
+            <label class="form-label">To</label
+            ><input
+              class="input"
+              id="to-date"
+              inputmode="numeric"
+              placeholder="DD/MM/YYYY"
+              maxlength="10"
+            />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Amount range</label
+            ><select class="select" id="amount-filter">
+              <option value="">All amounts</option>
+              <option value="0-500">₹0 – ₹500</option>
+              <option value="500-2000">₹500 – ₹2,000</option>
+              <option value="2000-5000">₹2,000 – ₹5,000</option>
+              <option value="5000-10000">₹5,000 – ₹10,000</option>
+              <option value="10000-">Above ₹10,000</option>
+              <option value="custom">Custom amount</option>
+            </select>
+          </div>
+          <div class="form-group hidden" id="min-amount-wrap">
+            <label class="form-label">Minimum</label
+            ><input class="input" id="min-amount" type="number" min="0" />
+          </div>
+          <div class="form-group hidden" id="max-amount-wrap">
+            <label class="form-label">Maximum</label
+            ><input class="input" id="max-amount" type="number" min="0" />
+          </div>
+          <button class="btn btn-secondary" id="clear-filters" type="button">
+            Clear filters
+          </button>
+        </section>
+        <section class="card table-card">
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Employee</th>
+                  <th>Manager</th>
+                  <th>Type</th>
+                  <th>Amount</th>
+                  <th>Remarks</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="entries-body">
+                <tr class="skeleton-row">
+                  <td colspan="6"><span class="skeleton"></span></td>
+                </tr>
+                <tr class="skeleton-row">
+                  <td colspan="6"><span class="skeleton"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div id="pagination"></div>
+        </section>
+      </div>
+    </main>
+    <script type="module" src="/js/app.js"></script>
+    <script type="module" src="/js/nav.js"></script>
+    <script type="module" src="/js/pages/entries.js"></script>
+    <script>
+      (function () {
+        function c() {
+          var b =
+            a.contentDocument || (a.contentWindow && a.contentWindow.document);
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'a242feafdc7b4938',t:'MTc4NTU2NzkzMA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
